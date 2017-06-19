@@ -1,26 +1,23 @@
 package com.parse.starter.ViewControllers;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CalendarView;
 import android.widget.ImageButton;
 
 import com.parse.ParseUser;
@@ -29,6 +26,7 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import ConfigClasses.LocationService;
 import FragmentControllers.AddNewClientsOrTrainerFragment;
 import FragmentControllers.CalendarFragment;
 import FragmentControllers.CaloriesFragment;
@@ -38,6 +36,8 @@ import FragmentControllers.EditDetailsFragment;
 import FragmentControllers.HomeViewFragment;
 import FragmentControllers.SelectedUserDetailsFragment;
 import FragmentControllers.YourProfileFragment;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class NavigationController extends AppCompatActivity implements CurrentClientsOrTrainerFragment.OnAddNewUserButtonClicked, AddNewClientsOrTrainerFragment.OnUserSelected, SelectedUserDetailsFragment.DismissDialogListener, HomeViewFragment.OnEditDetailsButton, ChangeDetailsFragment.DismissEditDialogListener, EditDetailsFragment.OnRowSelected {
 
@@ -262,6 +262,9 @@ public class NavigationController extends AppCompatActivity implements CurrentCl
 
     public void goal(Bundle savedInstanceState){
         Log.i("AppInfo", "Goal Button Clicked");
+
+        //ToDo Activate this service when user has somebody watching their location.
+        startService(new Intent(this, LocationService.class));
     }
 
     public void calendar(Bundle savedInstanceState){

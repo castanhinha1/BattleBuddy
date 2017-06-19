@@ -4,9 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
@@ -47,6 +49,14 @@ public class User extends ParseUser {
 
     public void setLocation(String value){
         put("location", value);
+    }
+
+    public ParseGeoPoint getGeopoint(){
+        return getParseGeoPoint("geopoint");
+    }
+
+    public void setGeopoint(ParseGeoPoint value){
+        put("geopoint", value);
     }
 
     public String getFirstName(){
@@ -147,6 +157,5 @@ public class User extends ParseUser {
             }
         });
     }
-
 }
 

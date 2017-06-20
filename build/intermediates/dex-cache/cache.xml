@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Dylan Castanhinha\.android\build-cache\bd39f74470d83c439a66e9136ea412e80c391f1e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d58fc73619d868adc8f2c9f42086e52093aeed54">
+        <dex dex="C:\Users\Dylan Castanhinha\Documents\BattleBuddy\BattleBuddies\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8e355f01f8ba6f4f6d2e480a5782e3b2d6e12154\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Dylan Castanhinha\.android\build-cache\58d21c5c4cccc7d3b5379ca6f36f622f6dd9b1ee\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -187,7 +196,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="a1d6e28d468313ecb6cf7e6861adde4e0702aaa8">
+        sha1="59e3aa1443efbc98c26cabccd2a78cad059bb1d5">
         <dex dex="C:\Users\Dylan Castanhinha\Documents\BattleBuddy\BattleBuddies\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_e09f6a1fd2c389e00e3544c9cf3fc865a230a621\classes.dex" />
     </item>
     <item

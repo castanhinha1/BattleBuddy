@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -26,7 +27,8 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
-import ConfigClasses.LocationService;
+import java.util.Map;
+
 import FragmentControllers.AddNewClientsOrTrainerFragment;
 import FragmentControllers.CalendarFragment;
 import FragmentControllers.CaloriesFragment;
@@ -34,10 +36,11 @@ import FragmentControllers.ChangeDetailsFragment;
 import FragmentControllers.CurrentClientsOrTrainerFragment;
 import FragmentControllers.EditDetailsFragment;
 import FragmentControllers.HomeViewFragment;
+import FragmentControllers.MapFragment;
 import FragmentControllers.SelectedUserDetailsFragment;
 import FragmentControllers.YourProfileFragment;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+import io.nlopez.smartlocation.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.SmartLocation;
 
 public class NavigationController extends AppCompatActivity implements CurrentClientsOrTrainerFragment.OnAddNewUserButtonClicked, AddNewClientsOrTrainerFragment.OnUserSelected, SelectedUserDetailsFragment.DismissDialogListener, HomeViewFragment.OnEditDetailsButton, ChangeDetailsFragment.DismissEditDialogListener, EditDetailsFragment.OnRowSelected {
 
@@ -261,10 +264,20 @@ public class NavigationController extends AppCompatActivity implements CurrentCl
     }
 
     public void goal(Bundle savedInstanceState){
-        Log.i("AppInfo", "Goal Button Clicked");
-
-        //ToDo Activate this service when user has somebody watching their location.
-        startService(new Intent(this, LocationService.class));
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
+                return;
+            }
+            // Create a new Fragment to be placed in the activity layout
+            MapFragment mapFragment = new MapFragment();
+            // Add the fragment to the 'fragment_container' FrameLayout
+            fragmentTransaction
+                    .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
+                    .replace(R.id.fragment_container, mapFragment)
+                    .commit();
+        }
     }
 
     public void calendar(Bundle savedInstanceState){
@@ -291,13 +304,19 @@ public class NavigationController extends AppCompatActivity implements CurrentCl
             if (savedInstanceState != null) {
                 return;
             }
-            // Create a new Fragment to be placed in the activity layout
+            /*// Create a new Fragment to be placed in the activity layout
             CurrentClientsOrTrainerFragment firstFragment = new CurrentClientsOrTrainerFragment();
             // Add the fragment to the 'fragment_container' FrameLayout
             fragmentTransaction
                     .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                     .replace(R.id.fragment_container, firstFragment)
-                    .commit();
+                    .commit();*/
+            CurrentClientsOrTrainerFragment firstFragment = new CurrentClientsOrTrainerFragment();
+            MapFragment mapFragment = new MapFragment();
+            fragmentTransaction.add(R.id.fragment_container_top, mapFragment);
+            fragmentTransaction.add(R.id.fragment_container_bottom, firstFragment);
+            fragmentTransaction.commit();
+
         }
     }
 

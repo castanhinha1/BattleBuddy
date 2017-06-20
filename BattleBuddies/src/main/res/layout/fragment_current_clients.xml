@@ -7,18 +7,37 @@
     tools:context="com.parse.starter.ViewControllers.TrainerViewController"
     android:background="#3a8f3e">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/swipeContainer"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ListView
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapViewFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
+            android:layout_weight="1.15"
             android:layout_centerHorizontal="true"
-            android:id="@+id/current_client_list_view"
-            android:layout_marginTop="10dp" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+            android:layout_centerVertical="true" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipeContainer"
+            android:layout_weight=".85"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/current_client_list_view"
+                android:layout_marginTop="10dp" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

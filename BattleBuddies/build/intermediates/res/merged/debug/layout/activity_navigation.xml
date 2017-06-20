@@ -9,15 +9,63 @@
     android:background="#3a8f3e">
 
     <include layout="@layout/tool_bar"
-        android:id="@+id/toolbar_layout"/>
+        android:id="@+id/toolbar_layout" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="2"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/fragment_container_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.15"
+                        android:layout_below="@id/toolbar_layout"
+                        android:layout_above="@+id/bottomBar">
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fragment_container_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".85"
+                        android:layout_below="@id/toolbar_layout"
+                        android:layout_above="@+id/bottomBar">
+                    </FrameLayout>
+
+                </LinearLayout>
+
+        </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:layout_below="@id/toolbar_layout"
         android:layout_above="@+id/bottomBar">
     </FrameLayout>
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight=".10"
+        android:layout_alignParentBottom="true"
+        android:background="@color/palette_texticonscolor"
+        app:bb_activeTabColor="@color/palette_primarycolor"
+        app:bb_inActiveTabColor="@color/palette_secondarytextcolor"
+        app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
     <FrameLayout
         android:id="@+id/fragment_container_popup"
@@ -26,15 +74,5 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
     </FrameLayout>
-
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/palette_texticonscolor"
-        app:bb_activeTabColor="@color/palette_primarycolor"
-        app:bb_inActiveTabColor="@color/palette_secondarytextcolor"
-        app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
 </RelativeLayout>

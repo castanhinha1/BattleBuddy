@@ -11,18 +11,6 @@
     <include layout="@layout/tool_bar"
         android:id="@+id/toolbar_layout" />
 
-    <include layout="@layout/navigation_bar"
-        android:id="@+id/navigation_bar_layout" />
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_below="@id/toolbar_layout"
-        android:layout_above="@+id/bottomBar">
-    </FrameLayout>
-
     <com.roughike.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
@@ -33,6 +21,15 @@
         app:bb_activeTabColor="@color/palette_primarycolor"
         app:bb_inActiveTabColor="@color/palette_secondarytextcolor"
         app:bb_tabXmlResource="@xml/bottombar_tabs" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_below="@id/toolbar_layout"
+        android:layout_above="@+id/bottomBar">
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container_popup"

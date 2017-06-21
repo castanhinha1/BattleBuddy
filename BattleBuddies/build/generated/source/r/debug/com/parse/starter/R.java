@@ -4454,7 +4454,7 @@ containing a value of this type.
         public static final int bodyFatTextField=0x7f100126;
         public static final int book_now=0x7f10007e;
         public static final int bottom=0x7f100037;
-        public static final int bottomBar=0x7f1000d8;
+        public static final int bottomBar=0x7f1000d7;
         public static final int box_count=0x7f100092;
         public static final int button=0x7f100093;
         public static final int buttonHeavy=0x7f10012e;
@@ -4573,11 +4573,11 @@ containing a value of this type.
         public static final int firstname=0x7f1000dd;
         public static final int fixed=0x7f100073;
         public static final int fragment_change_details_popup=0x7f100131;
-        public static final int fragment_container=0x7f1000da;
+        public static final int fragment_container=0x7f1000d8;
         public static final int fragment_container2=0x7f1000e1;
-        public static final int fragment_container_bottom=0x7f1000d9;
-        public static final int fragment_container_popup=0x7f1000db;
-        public static final int fragment_container_top=0x7f1000d7;
+        public static final int fragment_container_bottom=0x7f1000db;
+        public static final int fragment_container_popup=0x7f1000d9;
+        public static final int fragment_container_top=0x7f1000da;
         public static final int goal=0x7f1001a9;
         public static final int google_wallet_classic=0x7f100089;
         public static final int google_wallet_grayscale=0x7f10008a;

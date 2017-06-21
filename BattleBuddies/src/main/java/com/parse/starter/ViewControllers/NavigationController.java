@@ -304,18 +304,13 @@ public class NavigationController extends AppCompatActivity implements CurrentCl
             if (savedInstanceState != null) {
                 return;
             }
-            /*// Create a new Fragment to be placed in the activity layout
+            // Create a new Fragment to be placed in the activity layout
             CurrentClientsOrTrainerFragment firstFragment = new CurrentClientsOrTrainerFragment();
             // Add the fragment to the 'fragment_container' FrameLayout
             fragmentTransaction
                     .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                     .replace(R.id.fragment_container, firstFragment)
-                    .commit();*/
-            CurrentClientsOrTrainerFragment firstFragment = new CurrentClientsOrTrainerFragment();
-            MapFragment mapFragment = new MapFragment();
-            fragmentTransaction.add(R.id.fragment_container_top, mapFragment);
-            fragmentTransaction.add(R.id.fragment_container_bottom, firstFragment);
-            fragmentTransaction.commit();
+                    .commit();
 
         }
     }
